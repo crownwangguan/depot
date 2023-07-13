@@ -43,10 +43,12 @@ class LineItemsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy line_item" do
+    post line_items_url, params: { product_id: products(:ruby).id }
+
     assert_difference("LineItem.count", -1) do
       delete line_item_url(@line_item)
     end
 
-    assert_redirected_to line_items_url
+    assert_redirected_to cart_url(session[:cart_id])
   end
 end
