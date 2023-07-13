@@ -1,7 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Line items</h1>
-
+<h2>This Line items has been visited: <%= pluralize(@counter, 'time') %> </h2>
 <div id="line_items">
   <% @line_items.each do |line_item| %>
     <%= render line_item %>

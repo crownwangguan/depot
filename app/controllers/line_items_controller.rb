@@ -7,6 +7,13 @@ class LineItemsController < ApplicationController
   # GET /line_items or /line_items.json
   def index
     @line_items = LineItem.all
+    if session[:counter].nil?
+      session[:counter] = 0
+    else
+      session[:counter] += 1
+    end
+
+    @counter = session[:counter]
   end
 
   # GET /line_items/1 or /line_items/1.json
